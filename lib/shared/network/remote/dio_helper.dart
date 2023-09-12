@@ -4,10 +4,12 @@ class DioHelper {
   static late Dio dio;
 
   static init() {
-    dio = Dio(BaseOptions(
-      baseUrl: 'https://student.valuxapps.com/api/',
-      receiveDataWhenStatusError: true,
-    ));
+    dio = Dio(
+      BaseOptions(
+        baseUrl: 'https://student.valuxapps.com/api/',
+        receiveDataWhenStatusError: true,
+      ),
+    );
   }
 
   static Future<Response> postData({
@@ -28,7 +30,6 @@ class DioHelper {
       queryParameters: query,
     );
   }
-
 
   static Future<Response> getData({
     required String url,
@@ -56,7 +57,6 @@ class DioHelper {
       'lang': lang,
       'Authorization': token,
     };
-    return await dio.put(url, queryParameters: query,data: data);
+    return await dio.put(url, queryParameters: query, data: data);
   }
-
 }
